@@ -1,0 +1,21 @@
+{
+  "name": "es6-boilerplate-webpack",
+  "version": "0.1.0",
+  "description": "ES6 Boilerplate with Babel and Webpack",
+  "main": "app.js",
+  "scripts": {
+    "clean": "rm -rf node_modules && npm install",
+    "build": "webpack -p",
+    "dev": "webpack-dev-server --progress --colors --hot --inline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jan Jarfalk",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^5.0.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^4.7.16",
+    "three": "^0.70.0"
+  }
+}
