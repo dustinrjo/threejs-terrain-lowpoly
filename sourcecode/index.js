@@ -17,6 +17,9 @@ const camera = new Three.PerspectiveCamera(
 // Distance camera from the center of the scene.
 camera.position.z = 4;
 
+// Rotate
+camera.rotation.x = 0.4;
+
 // The WebGL renderer displays your beautifully crafted
 // scenes using WebGL, if your device supports it.
 const renderer = new Three.WebGLRenderer({
@@ -26,17 +29,16 @@ const renderer = new Three.WebGLRenderer({
 
 //
 const planeMaterial = new Three.MeshPhongMaterial({
-  specular: 0x333333,         // Specular color of the material (light)
-  color: 0x3333333,            // Geometry color in hexadecimal
-  emissive: 0x111111,         // Emissive color of the material (dark)
-  shininess: 10,              // How shiny the specular highlight is
+  specular: 0xfb8717,         // Specular color of the material (light)
+  color: 0xFF4E50,            // Geometry color in hexadecimal
+  emissive: 0xFF4E50,         // Emissive color of the material (dark)
+  shininess: 30,              // How shiny the specular highlight is
   shading: Three.FlatShading  // NoShading, FlatShading or SmoothShading
 });
 
 
 // Create a geometry with N segments.
-const segments = 50;
-const planeGeometry = new Three.PlaneGeometry(20, 20, segments, segments);
+const planeGeometry = new Three.PlaneGeometry(30, 60, 60, 120);
 
 // Move the vertices by random.
 planeGeometry.vertices.map(function (vertex) {
@@ -54,7 +56,7 @@ const plane = new Three.Mesh(planeGeometry, planeMaterial);
 
 // Create a wireframe
 const wireframeMaterial = new Three.MeshBasicMaterial({
-  color: 0x222222,
+  color: 0xFF4E50,
   wireframe: true
 });
 const wireframe = new Three.Mesh(planeGeometry, wireframeMaterial);
@@ -69,7 +71,7 @@ scene.add(plane);
 // light source that acts like the sun: the sun is so far
 // away that all sunlight hitting objects comes from the
 // same angle.
-var light = new Three.DirectionalLight(0xffffff, 0.1);
+var light = new Three.DirectionalLight(0xffffff, 0.3);
 light.position.set(1, 1, 1);
 scene.add(light);
 
